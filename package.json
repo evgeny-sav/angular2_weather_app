@@ -1,0 +1,77 @@
+{
+  "name": "angular2_weather_app",
+  "version": "1.0.0",
+  "description": "weather app built with angular2, typescript and webpack",
+  "main": "server.js",
+  "scripts": {
+    "start": "webpack",
+    "watch": "webpack --watch"
+  },
+  "engines": {
+    "node": "7.0.0",
+    "npm": "3.10.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evgeny-sav/angular2_weather_app.git"
+  },
+  "author": "yauheni sauchanka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evgeny-sav/angular2_weather_app/issues"
+  },
+  "dependencies": {
+    "@angular/common": "~2.2.0",
+    "@angular/compiler": "~2.2.0",
+    "@angular/core": "~2.2.0",
+    "@angular/forms": "~2.2.0",
+    "@angular/http": "~2.2.0",
+    "@angular/platform-browser": "~2.2.0",
+    "@angular/platform-browser-dynamic": "~2.2.0",
+    "@angular/router": "~3.2.0",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.26",
+
+    "angular-in-memory-web-api": "~0.1.15",
+    "reflect-metadata": "^0.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.46",
+    "@types/core-js": "^0.9.34",
+    "@types/lodash": "^4.14.40",
+    "@types/whatwg-fetch": "0.0.32",
+    "awesome-typescript-loader": "^3.0.0-beta.3",
+    "angular2-template-loader": "^0.4.0",
+    "html-loader": "^0.4.3",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0",
+
+
+    "concurrently": "^3.1.0",
+    "canonical-path": "0.0.2",
+    "http-server": "^0.9.0",
+    "tslint": "^3.15.1",
+    "webdriver-manager": "10.2.5",
+    "rimraf": "^2.5.4",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.0",
+    "enhanced-resolve": "^2.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.24.1",
+    "lodash": "^4.17.2",
+    "lodash-webpack-plugin": "^0.10.6",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "typescript": "^2.0.10",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3",
+    "express": "^4.14.0",
+    "weathericons": "^2.1.0"
+  },
+  "homepage": "https://github.com/evgeny-sav/angular2_weather_app#readme"
+}
