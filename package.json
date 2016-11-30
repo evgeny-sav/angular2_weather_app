@@ -34,9 +34,8 @@
     "zone.js": "^0.6.26",
 
     "angular-in-memory-web-api": "~0.1.15",
-    "reflect-metadata": "^0.1.8"
-  },
-  "devDependencies": {
+    "reflect-metadata": "^0.1.8",
+
     "@types/node": "^6.0.46",
     "@types/core-js": "^0.9.34",
     "@types/lodash": "^4.14.40",
