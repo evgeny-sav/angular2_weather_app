@@ -1,12 +1,15 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    'app': './src/main.ts'
+    app: './src/main.ts',
+    vendor: './src/vendor.ts',
+    styles: './src/assets/scss/main.scss'
   },
   output: {
     path: './dist',
@@ -14,6 +17,7 @@ module.exports = {
   },
 
   resolve: {
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.ts', '.js']
   },
 
@@ -21,7 +25,8 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader']
+        loaders: ['awesome-typescript-loader'],
+        exclude: [/\.(spec|e2e)\.ts$/]
       },
       {
         test: /\.html$/,
@@ -29,22 +34,23 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
+        loader: 'file?name=assets/[path][name].[ext]&context=node_modules'
       },
       {
-        test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-      },
-      {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw'
+        test: /\.(scss|sass)$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader!sass-loader'
+        )
       }
     ]
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor']
+    }),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -52,8 +58,19 @@ module.exports = {
         warnings: false
       }
     }),
+    new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new CopyWebpackPlugin(
+      [{
+        from: 'src/assets',
+        to: 'assets'
+      }],
+      {
+        ignore: ['scss/*'],
+        copyUnmodified: true
+      }
+    )
   ]
 };

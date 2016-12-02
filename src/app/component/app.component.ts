@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { template } from '../tpl/app.tpl';
 
 @Component({
   selector: 'app',
-  template: '<h1>Hello</h1>'
+  template: template,
+  styleUrls: []
 })
 
 export class AppComponent {

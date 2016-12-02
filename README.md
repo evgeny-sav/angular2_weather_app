@@ -1,2 +1,14 @@
-# angular2_weather_app
-Weather App with Angular2, TS, Webpack
+# Weather App
+built with Angular2, TS, Webpack
+
+## Requirements:
+- nodejs
+- npm
+
+```
+$ npm i                     - to install all dependencies
+$ npm start                 - to build
+$ node server               - run local server at http://localhost:8000
+```
+
+Also my app is available at [ys-weather-app.herokuapp.com](https://ys-weatherapp.herokuapp.com/)
