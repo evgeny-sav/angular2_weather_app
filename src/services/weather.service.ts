@@ -15,7 +15,7 @@ export class WeatherService {
   constructor(private http: Http) {}
 
   getWeather(): Promise<WeatherData> {
-    return this.http.get('./assets/data.json')
+    return this.http.get(URL)
       .toPromise()
       .then((res: Response) => res.json());
 

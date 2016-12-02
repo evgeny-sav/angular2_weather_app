@@ -20,7 +20,6 @@ export const template = `
         </div>
     </nav>
     <div class="container">
-        <div id="loader-box" class="text-center"><div class="loader"></div></div>
           <div class="row">
             <cards-list></cards-list>
           </div>

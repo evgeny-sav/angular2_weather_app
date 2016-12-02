@@ -1,1 +1,26 @@
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
+  .params {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .param {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+
+      i.wi {
+        color: skyblue;
+      }
+    }
+  }
+}

@@ -8,5 +8,4 @@ import { template } from '../tpl/app.tpl';
 })
 
 export class AppComponent {
-
 }

@@ -10,6 +10,7 @@ import {WeatherService, WeatherData, City} from '../../services/weather.service'
 
 export class CardsListComponent implements OnInit{
   weatherData: City[];
+  isLoading: boolean = true;
 
   constructor(private weatherService: WeatherService) {}
 
@@ -19,6 +20,9 @@ export class CardsListComponent implements OnInit{
 
   getList(): void {
     this.weatherService.getWeather()
-      .then((data: WeatherData) => {this.weatherData = data.list;});
+      .then((data: WeatherData) => {
+        this.weatherData = data.list;
+        this.isLoading = false;
+      });
   }
 }
