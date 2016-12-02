@@ -11,4 +11,4 @@ $ npm start                 - to build
 $ node server               - run local server at http://localhost:8000
 ```
 
-Also my app is available at [ys-weather-app.herokuapp.com](https://ys-weatherapp.herokuapp.com/)
+Also my app is available at [ys-weatherapp.herokuapp.com](https://ys-weatherapp.herokuapp.com/)
