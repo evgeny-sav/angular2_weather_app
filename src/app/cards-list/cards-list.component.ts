@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService, WeatherData, City} from './weather.service';
+import { WeatherService, WeatherData, City } from './weather.service';
 
 @Component({
   selector: 'cards-list',
-  template: require('./card-list.component.html'),
-  providers: [WeatherService]
+  template: `
+    <div id="loader-box" class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
+    <card *ngFor="let city of weatherData" [city]="city" ></card>`,
+  // styles: [require('./cards-list.scss')],
+  providers: [ WeatherService ]
 })
 
 export class CardsListComponent implements OnInit{

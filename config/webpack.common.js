@@ -5,11 +5,10 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
-  devtool: 'source-map',
   entry: {
     app: './src/main.ts',
     vendor: './src/vendor.ts',
-    styles: './src/main.scss'
+    'vendor-styles': './src/main.scss'
   },
   output: {
     path: './dist',
@@ -41,7 +40,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader!sass-loader'
+          'to-string!css-loader!sass-loader'
         )
       }
     ]
@@ -62,15 +61,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    // new CopyWebpackPlugin(
-    //   [{
-    //     from: 'src/assets',
-    //     to: 'assets'
-    //   }],
-    //   {
-    //     ignore: ['scss/*'],
-    //     copyUnmodified: true
-    //   }
-    // )
+    new CopyWebpackPlugin(
+      [{
+        from: 'src/mock-data.json'
+      }]
+    )
   ]
 };

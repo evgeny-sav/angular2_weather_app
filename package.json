@@ -37,6 +37,7 @@
     "angular2-google-maps": "^0.16.0",
     "angular2-template-loader": "^0.5.0",
     "awesome-typescript-loader": "^3.0.0-beta.3",
+    "bootswatch": "^3.3.7",
     "canonical-path": "0.0.2",
     "concurrently": "^3.1.0",
     "copy-webpack-plugin": "^4.0.1",
