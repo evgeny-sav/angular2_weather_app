@@ -1,11 +1,12 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent }  from './app.component';
 import { CardsListComponent } from './cards-list';
 import { CardComponent } from './cards-list/card';
-import { AgmCoreModule } from 'angular2-google-maps/core';
-import { HttpModule } from '@angular/http';
+import { GoogleMapComponent } from './gmap/gmap.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { HttpModule } from '@angular/http';
   declarations: [
     AppComponent,
     CardsListComponent,
-    CardComponent
+    CardComponent,
+    GoogleMapComponent
   ],
   bootstrap: [
     AppComponent

@@ -3,7 +3,7 @@ import {WeatherService, WeatherData, City} from './weather.service';
 
 @Component({
   selector: 'cards-list',
-  template: 'require("./card-list.component.html")',
+  template: require('./card-list.component.html'),
   providers: [WeatherService]
 })
 
