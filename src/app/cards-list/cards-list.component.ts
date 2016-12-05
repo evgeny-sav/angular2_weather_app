@@ -1,10 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { template } from '../tpl/cards-list.tpl';
-import {WeatherService, WeatherData, City} from '../../services/weather.service';
+import { Component, OnInit } from '@angular/core';
+import {WeatherService, WeatherData, City} from './weather.service';
 
 @Component({
   selector: 'cards-list',
-  template: template,
+  template: 'require("./card-list.component.html")',
   providers: [WeatherService]
 })
 

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { template } from '../tpl/app.tpl';
 
 @Component({
   selector: 'app',
-  template: template,
+  templateUrl: 'require("./app.component.html")',
   styleUrls: []
 })
 

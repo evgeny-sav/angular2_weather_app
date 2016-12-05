@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     app: './src/main.ts',
     vendor: './src/vendor.ts',
-    styles: './src/assets/scss/main.scss'
+    styles: './src/main.scss'
   },
   output: {
     path: './dist',
@@ -25,7 +25,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader'],
+        loaders: ['ts-loader'],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
       {
@@ -62,15 +62,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
-    new CopyWebpackPlugin(
-      [{
-        from: 'src/assets',
-        to: 'assets'
-      }],
-      {
-        ignore: ['scss/*'],
-        copyUnmodified: true
-      }
-    )
+    // new CopyWebpackPlugin(
+    //   [{
+    //     from: 'src/assets',
+    //     to: 'assets'
+    //   }],
+    //   {
+    //     ignore: ['scss/*'],
+    //     copyUnmodified: true
+    //   }
+    // )
   ]
 };
