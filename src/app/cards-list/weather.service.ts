@@ -33,7 +33,12 @@ export class WeatherData {
   list: City[];
   message: string;
 
-  constructor(cod: string, count: number, list: City[], message: string) {
+  constructor(
+    cod: string,
+    count: number,
+    list: City[],
+    message: string
+  ) {
     this.cod = cod;
     this.count = count;
     this.list = list;
@@ -52,7 +57,17 @@ export class City {
   weather: Icon[];
   wind: Wind;
 
-  constructor(clouds: Clouds, coord: Coord, dt: number, id: number, main: Weather, name: string, sys: Sys, weather: Icon[], wind: Wind) {
+  constructor(
+    clouds: Clouds,
+    coord: Coord,
+    dt: number,
+    id: number,
+    main: Weather,
+    name: string,
+    sys: Sys,
+    weather: Icon[],
+    wind: Wind
+  ) {
     this.clouds = clouds;
     this.coord = coord;
     this.dt = dt;
@@ -68,7 +83,9 @@ export class City {
 export class Clouds {
   all: number;
 
-  constructor(all: number) {
+  constructor(
+    all: number
+  ) {
     this.all = all;
   }
 }
@@ -77,7 +94,10 @@ export class Coord {
   lat: number;
   lon: number;
 
-  constructor(lat: number, lon: number) {
+  constructor(
+    lat: number,
+    lon: number
+  ) {
     this.lat = lat;
     this.lon = lon;
   }
@@ -90,7 +110,13 @@ export class Weather {
   temp_max: number;
   temp_min: number;
 
-  constructor(humidity: number, pressure: number, temp: number, temp_max: number, temp_min: number) {
+  constructor(
+    humidity: number,
+    pressure: number,
+    temp: number,
+    temp_max: number,
+    temp_min: number
+  ) {
     this.humidity = humidity;
     this.pressure = pressure;
     this.temp = temp;
@@ -113,7 +139,12 @@ export class Icon {
   id: number;
   main: string;
 
-  constructor(description: string, icon: string, id: number, main: string) {
+  constructor(
+    description: string,
+    icon: string,
+    id: number,
+    main: string
+  ) {
     this.description = description;
     this.icon = icon;
     this.id = id;
@@ -125,7 +156,10 @@ export class Wind {
   deg: number;
   speed: number;
 
-  constructor(deg: number, speed: number) {
+  constructor(
+    deg: number,
+    speed: number
+  ) {
     this.deg = deg;
     this.speed = speed;
   }
