@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "rm -fr dist && webpack && node server.js"
+
   },
   "engines": {
     "node": "7.0.0",
