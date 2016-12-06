@@ -4,7 +4,7 @@
   "description": "weather app built with angular2, typescript and webpack",
   "main": "server.js",
   "scripts": {
-    "start": "webpack && node server.js"
+    "start": "webpack"
   },
   "engines": {
     "node": "7.0.0",
