@@ -16,3 +16,6 @@ import '@angular/router';
 import 'rxjs';
 // _.lodash
 import * as _ from 'lodash';
+import 'bootswatch/paper/bootstrap.min.css';
+import 'weathericons/css/weather-icons.css';
+import 'weathericons/css/weather-icons-wind.css';
