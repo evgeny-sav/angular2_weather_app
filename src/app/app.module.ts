@@ -3,10 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
-import { AppComponent }  from './app.component';
-import { CardsListComponent } from './cards-list';
-import { CardComponent } from './cards-list/card';
-import { GoogleMapComponent } from './gmap/gmap.component';
+import { AppComponent, CardsListComponent, CardComponent, GoogleMapComponent }  from '../app/';
 
 @NgModule({
   imports: [

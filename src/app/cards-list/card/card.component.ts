@@ -4,7 +4,7 @@ import { City } from '../weather.service';
 @Component({
   selector: 'card',
   template: require('./card.component.html'),
-  styles: [require('./card.scss')],
+  styles: [require('./card.component.scss')],
 })
 
 export class CardComponent {
