@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'google-map',
-  template: `<sebm-google-map [latitude]="lat" [longitude]="lng"></sebm-google-map>`,
-  styles: [require('./gmap.component.scss')]
+  template: require('./google-map.component.html'),
+  styles: [require('./google-map.component.scss')]
 })
 
 export class GoogleMapComponent implements OnInit{

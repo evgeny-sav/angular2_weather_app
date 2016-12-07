@@ -1,3 +1,3 @@
 export * from './app.component';
 export * from './cards-list/';
-export * from './gmap/';
+export * from './google-map/';

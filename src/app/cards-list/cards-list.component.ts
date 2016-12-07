@@ -5,7 +5,7 @@ import { WeatherData, City } from '../shared/';
 @Component({
   selector: 'cards-list',
   template: `
-    <div id="loader-box" class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
+    <div class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
     <card *ngFor="let city of weatherData" [city]="city" ></card>`,
   styles: [require('./cards-list.component.scss')],
   providers: [ WeatherService ]
