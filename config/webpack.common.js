@@ -65,6 +65,9 @@ module.exports = {
     new CopyWebpackPlugin(
       [{
         from: 'src/mock-data.json'
+      },
+      {
+       from: 'src/favicon.ico'
       }]
     )
   ]
