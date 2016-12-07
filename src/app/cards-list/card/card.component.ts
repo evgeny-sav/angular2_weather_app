@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { City } from '../weather.service';
+import { City } from '../../shared';
 
 @Component({
   selector: 'card',

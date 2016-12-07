@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService, WeatherData, City } from './weather.service';
+import { WeatherService } from './weather.service';
+import { WeatherData, City } from '../shared/';
 
 @Component({
   selector: 'cards-list',
