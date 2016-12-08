@@ -1,15 +1,13 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var helpers = require('./helpers');
 
+
 module.exports = {
-  devtool: 'source-map',
   entry: {
-    app: './src/main.ts',
     vendor: './src/vendor.ts',
-    styles: './src/assets/scss/main.scss'
+    app: './src/main.ts'
   },
   output: {
     path: './dist',
@@ -39,13 +37,16 @@ module.exports = {
       {
         test: /\.(scss|sass)$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader!sass-loader'
-        )
+        loaders: ['raw-loader', 'sass-loader']
+      },
+      {
+        test: /\.css/,
+        loader: 'style-loader!css-loader'
       }
+
     ]
   },
+
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -58,19 +59,16 @@ module.exports = {
         warnings: false
       }
     }),
-    new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),
     new CopyWebpackPlugin(
       [{
-        from: 'src/assets',
-        to: 'assets'
-      }],
+        from: 'src/mock-data.json'
+      },
       {
-        ignore: ['scss/*'],
-        copyUnmodified: true
-      }
+       from: 'src/favicon.ico'
+      }]
     )
   ]
 };
