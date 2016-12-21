@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
-import { CardsListComponent, CardComponent, GoogleMapComponent }  from './';
+import { CardsListComponent, CardComponent, GoogleMapComponent, HeaderComponent, FooterComponent }  from './';
 
 @NgModule({
   imports: [
@@ -16,7 +16,9 @@ import { CardsListComponent, CardComponent, GoogleMapComponent }  from './';
     AppComponent,
     CardsListComponent,
     CardComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   bootstrap: [
     AppComponent
