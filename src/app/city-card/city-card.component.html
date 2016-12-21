@@ -1,0 +1,38 @@
+<div class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
+<div class="panel panel-primary" *ngFor="let city of weatherData | async ">
+  <div class="panel-heading">
+    <div class="panel-title">{{ city.name }}</div>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-6">
+      <google-map></google-map>
+    </div>
+    <div class="col-md-6">
+      <p class="h4">21/12/2016 at 4:13 PM <code>Date & Time is hardcoded yet</code></p>
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <td><strong>Temperature:</strong></td>
+            <td>{{ city.main.temp }}</td>
+          </tr>
+          <tr>
+            <td><strong>Wind:</strong></td>
+            <td>{{ city.wind.speed }}</td>
+          </tr>
+          <tr>
+            <td><strong>Humidity:</strong></td>
+            <td>{{ city.main.humidity }}%</td>
+          </tr>
+          <tr>
+            <td><strong>Clouds:</strong></td>
+            <td>{{ city.clouds.all }}%</td>
+          </tr>
+          <tr>
+            <td><strong>Pressure:</strong></td>
+            <td>{{ city.main.pressure }} mbar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

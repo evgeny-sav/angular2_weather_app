@@ -4,7 +4,8 @@ import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
-import { CardsListComponent, CardComponent, GoogleMapComponent, HeaderComponent, FooterComponent }  from './';
+import { CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent }  from './';
+import {CityWeatherPipe} from "./city-card/cityWeather.pipe";
 
 @NgModule({
   imports: [
@@ -14,11 +15,12 @@ import { CardsListComponent, CardComponent, GoogleMapComponent, HeaderComponent,
   ],
   declarations: [
     AppComponent,
-    CardsListComponent,
-    CardComponent,
+    CityCardComponent,
     GoogleMapComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CitySearchBarComponent,
+    CityWeatherPipe
   ],
   bootstrap: [
     AppComponent
