@@ -11,6 +11,7 @@ import { WeatherData, City } from '../shared/';
 export class CityCardComponent implements OnInit {
   weatherData: Promise<City[]>;
   isLoading: boolean = true;
+  dateNow: number = Date.now();
 
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {

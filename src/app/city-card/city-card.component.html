@@ -5,10 +5,10 @@
   </div>
   <div class="panel-body">
     <div class="col-md-6">
-      <google-map></google-map>
+      <google-map [lat]="city.coord.lat" [lng]="city.coord.lon"></google-map>
     </div>
     <div class="col-md-6">
-      <p class="h4">21/12/2016 at 4:13 PM <code>Date & Time is hardcoded yet</code></p>
+      <p class="h4">{{dateNow | date:'d MMMM y  H:mm'}}</p>
       <table class="table table-striped table-hover">
         <tbody>
           <tr>
