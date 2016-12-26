@@ -5,6 +5,7 @@ var helpers = require('./helpers');
 
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     vendor: './src/vendor.ts',
     app: './src/main.ts'
@@ -54,11 +55,11 @@ module.exports = {
     }),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     }),

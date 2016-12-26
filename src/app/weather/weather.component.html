@@ -1,0 +1,6 @@
+<!--<p>{{weatherData | async | json}}</p>-->
+<city-search-bar #search [class.hidden]="isLoading"></city-search-bar>
+<div class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
+
+<city-card *ngFor="let cityWeather of ( weatherData | async ) | cityWeatherPipe:search.search"  [cityWeather]="cityWeather"></city-card>
+

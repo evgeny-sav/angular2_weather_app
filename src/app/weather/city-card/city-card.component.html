@@ -1,0 +1,39 @@
+<!--<div class="panel panel-default">{{cityWeather | json}}</div>-->
+<h1>{{search.search | json }}</h1>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-title">{{ cityWeather.name }}</div>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-6">
+      <google-map [lat]="cityWeather.coord.lat" [lng]="cityWeather.coord.lon"></google-map>
+    </div>
+    <div class="col-md-6">
+      <p class="h4">{{dateNow | date:'d MMMM y  H:mm'}}</p>
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <td><strong>Temperature:</strong></td>
+            <td>{{ cityWeather.main.temp }}</td>
+          </tr>
+          <tr>
+            <td><strong>Wind:</strong></td>
+            <td>{{ cityWeather.wind.speed }}</td>
+          </tr>
+          <tr>
+            <td><strong>Humidity:</strong></td>
+            <td>{{ cityWeather.main.humidity }}%</td>
+          </tr>
+          <tr>
+            <td><strong>Clouds:</strong></td>
+            <td>{{ cityWeather.clouds.all }}%</td>
+          </tr>
+          <tr>
+            <td><strong>Pressure:</strong></td>
+            <td>{{ cityWeather.main.pressure }} mbar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
