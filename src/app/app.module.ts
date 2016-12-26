@@ -4,8 +4,8 @@ import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
-import { CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent }  from './';
-import {CityWeatherPipe} from "./city-card/cityWeather.pipe";
+import { WeatherComponent, CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent }  from './';
+import {CityWeatherPipe} from "./weather/cityWeather.pipe";
 
 @NgModule({
   imports: [
@@ -20,6 +20,7 @@ import {CityWeatherPipe} from "./city-card/cityWeather.pipe";
     HeaderComponent,
     FooterComponent,
     CitySearchBarComponent,
+    WeatherComponent,
     CityWeatherPipe
   ],
   bootstrap: [
