@@ -9,4 +9,5 @@ import {Component, Input} from '@angular/core';
 export class GoogleMapComponent {
   @Input() lat: number;
   @Input() lng: number;
+  @Input() cityName: string;
 }
