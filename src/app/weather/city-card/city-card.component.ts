@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { WeatherData } from "../../shared";
 
 
@@ -7,9 +7,7 @@ import { WeatherData } from "../../shared";
   template: require('./city-card.component.html'),
   styles: [require('./city-card.component.scss')]
 })
-export class CityCardComponent implements OnInit {
+export class CityCardComponent {
   @Input() cityWeather: WeatherData;
   @Input() search: string = '';
-
-  ngOnInit() {}
 }

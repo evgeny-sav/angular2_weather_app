@@ -1,12 +1,12 @@
 <div class="row clearfix">
   <div class="col-md-12">
-    <form class="form-group clearfix" (keyup)="filterCities($event, cityName.value)">
-    <div class="col-md-12">
+    <form class="form-group clearfix" (keyup)="filterCities($event, cityName.value)" (submit)="filterCities($event, cityName.value)" (reset)="resetInput()">
+    <div class="col-md-10">
       <input type="text" class="form-control" #cityName placeholder="Search" value="">
     </div>
-    <!--<div class="col-md-2">-->
-      <!--<button type="submit" class="btn btn-info btn-block">Find</button>-->
-    <!--</div>-->
+    <div class="col-md-2">
+      <button type="reset" class="btn btn-info btn-block">Reset</button>
+    </div>
     </form>
   </div>
 </div>

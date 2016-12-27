@@ -1,4 +1,4 @@
-import  { Component } from "@angular/core";
+import  { Component } from '@angular/core';
 
 @Component({
   selector: 'city-search-bar',
@@ -13,14 +13,9 @@ export class CitySearchBarComponent {
 
   filterCities(event: Event, value: string = '') {
     event.preventDefault();
-    // this.searchedCyties = [];
-    // let pattern = new RegExp(value,'i');
-    // this.weatherData.filter((city: City) => {
-    //   if (pattern.test(city.name)) {
-    //     this.searchedCyties.push(city);
-    //   }
-    // })
     this.search = value;
   }
-
+  resetInput() {
+    this.search = '';
+  }
 }
