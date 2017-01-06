@@ -10,14 +10,17 @@ import { WeatherData, City } from '../shared';
   providers: [ WeatherService ]
 })
 export class WeatherComponent implements OnInit{
+  @Input() header: any;
   @Input() searchedCyties: City[];
   weatherData: Promise<City[]>;
   isLoading: boolean = true;
   dateNow: number = Date.now();
+  favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
 
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {
     this.weatherData = this.getList();
+    console.log(this.favCities)
   }
 
   getList() {

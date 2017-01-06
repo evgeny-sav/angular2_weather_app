@@ -1,7 +1,11 @@
 <h1>{{search.search | json }}</h1>
 <div class="panel panel-primary">
-  <div class="panel-heading">
-    <div class="panel-title">{{ cityWeather.name }}</div>
+  <div class="panel-heading clearfix">
+    <div class="panel-title">
+      <span class="pull-left">{{ cityWeather.name }}</span>
+      <a class="pull-right" (click)="toggleFav($event, cityWeather)"><span [class.glyphicon-star]="isFav" [class.glyphicon-star-empty]="!isFav"class="glyphicon"></span></a>
+    </div>
+
   </div>
   <div class="panel-body">
     <div class="col-md-6">
