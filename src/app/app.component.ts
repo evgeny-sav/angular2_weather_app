@@ -13,5 +13,8 @@ export class AppComponent implements OnInit{
     if (_.isNull(localStorage.getItem('favCities'))) {
       localStorage.setItem('favCities', JSON.stringify([]))
     }
+    if (_.isNull(localStorage.getItem('addedCities'))) {
+      localStorage.setItem('addedCities', JSON.stringify([]))
+    }
   }
 }

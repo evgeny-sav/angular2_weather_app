@@ -5,12 +5,14 @@
 
 <div *ngIf="header.list">
   <h1>List of cities</h1>
+  <city-card *ngFor="let cityWeather of addedCities" [cityWeather]="cityWeather"></city-card>
 </div>
 
 <div *ngIf="header.search">
   <city-search-bar #search [class.hidden]="isLoading"></city-search-bar>
   <div class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
   <city-card *ngFor="let cityWeather of ( weatherData | async ) | cityWeatherPipe:search.search" [cityWeather]="cityWeather"></city-card>
+  <city-card *ngFor="let cityWeather of search.city | cityWeatherPipe:search.search" [cityWeather]="cityWeather"></city-card>
 </div>
 
 <div *ngIf="header.settings">
