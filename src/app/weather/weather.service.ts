@@ -25,7 +25,7 @@ export class WeatherService {
 
   }
   getCityWeather(cityName: string): Promise<City> {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${API_ID}`)
+    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${UNITS}&APPID=${API_ID}`)
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
