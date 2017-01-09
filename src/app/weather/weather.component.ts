@@ -1,16 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { WeatherData, City } from '../shared';
+import { HeaderComponent } from "../header/header.component";
 
 
 @Component({
   selector: 'weather',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: require('./weather.component.html'),
   styles: [require('./weather.component.scss')],
   providers: [ WeatherService ]
 })
 export class WeatherComponent implements OnInit{
-  @Input() header: any;
+  @Input() header: HeaderComponent;
   @Input() searchedCyties: City[];
   weatherData: Promise<City[]>;
   isLoading: boolean = true;

@@ -7,41 +7,46 @@ import {Component} from "@angular/core";
 
 export class HeaderComponent {
 
-  favourite: boolean = true;
-  list: boolean = false;
-  search: boolean = false;
-  settings: boolean = false;
+  state: Object = {
+    favourite: true,
+    list: false,
+    search: false,
+    settings: false
+  };
 
   search_state() {
-    this.search = true;
-
-    this.favourite= false;
-    this.list= false;
-    this.settings= false;
+    this.state = new Object({
+      search: true,
+      favourite: false,
+      list: false,
+      settings: false
+    })
   }
   favourite_state() {
-    this.favourite= true;
-
-    this.search = false;
-    this.list= false;
-    this.settings= false;
+    this.state = new Object({
+      favourite: true,
+      settings: false,
+      search: false,
+      list: false
+    })
 
   }
   list_state() {
-    this.list= true;
-
-    this.search = false;
-    this.favourite= false;
-    this.settings= false;
+    this.state = new Object({
+      list: true,
+      settings: false,
+      search: false,
+      favourite: false
+    })
 
   }
   settings_state() {
-    this.settings= true;
-
-    this.search = false;
-    this.favourite= false;
-    this.list= false;
-
+    this.state = new Object({
+      settings: true,
+      search: false,
+      favourite: false,
+      list: false
+    })
   }
 
 }
