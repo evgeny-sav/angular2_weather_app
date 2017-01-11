@@ -19,11 +19,13 @@
         <tbody>
           <tr>
             <td><strong>Temperature:</strong></td>
-            <td>{{ cityWeather.main.temp }}</td>
+            <td *ngIf="K">{{ Math.floor(cityWeather.main.temp) }} &deg;K</td>
+            <td *ngIf="C">{{ Math.floor(cityWeather.main.temp) }} &deg;C</td>
+            <td *ngIf="F">{{ Math.floor(cityWeather.main.temp) }} &deg;F</td>
           </tr>
           <tr>
             <td><strong>Wind:</strong></td>
-            <td>{{ cityWeather.wind.speed }}</td>
+            <td>{{ cityWeather.wind.speed }} mps</td>
           </tr>
           <tr>
             <td><strong>Humidity:</strong></td>

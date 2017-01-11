@@ -15,6 +15,7 @@ export class WeatherComponent implements OnInit{
   @Input() header: HeaderComponent;
   weatherData: Promise<City[]>;
   isLoading: boolean = true;
+  temperature:string;
   dateNow: number = Date.now();
   favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
   addedCities: City[] = JSON.parse(localStorage.getItem('addedCities'));
@@ -30,5 +31,8 @@ export class WeatherComponent implements OnInit{
         this.isLoading = false;
         return data.list;
       })
+  }
+  toggleTemp(temp: string) {
+    this.temperature = temp;
   }
 }

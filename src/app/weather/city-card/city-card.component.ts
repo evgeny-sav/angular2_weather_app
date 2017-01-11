@@ -1,5 +1,6 @@
 import {Component, Input, ChangeDetectionStrategy, OnInit} from "@angular/core";
-import { WeatherData, City } from "../../shared";
+import { City } from "../../shared";
+import * as _ from 'lodash';
 
 
 @Component({
@@ -9,12 +10,43 @@ import { WeatherData, City } from "../../shared";
   styles: [require('./city-card.component.scss')]
 })
 export class CityCardComponent implements OnInit {
-  @Input() cityWeather: WeatherData;
+  @Input() cityWeather: City;
   @Input() search: string = '';
+  @Input() temperature: string;
   isFav = false;
   isAdded = false;
+  Math:Math = Math;
+  K:boolean = false;
+  C:boolean = false;
+  F:boolean = false;
 
-  ngOnInit() {}
+
+  ngOnInit() {
+    switch (this.temperature) {
+      case 'k': this.K = true;
+      break;
+      case 'c': this.C = true;
+      break;
+      case'f': this.F = true;
+      break;
+      default: this.C = true;
+    }
+
+    let favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
+    let addedCities: City[] = JSON.parse(localStorage.getItem('addedCities'));
+
+
+    _.each(favCities, (city: City) => {
+      if (city.id === this.cityWeather.id) {
+        this.isFav = true;
+      }
+    });
+    _.each(addedCities, (city: City) => {
+      if (city.id === this.cityWeather.id) {
+        this.isAdded = true;
+      }
+    })
+  }
 
   toggleFav(event: Event,city: City) {
     event.preventDefault();
@@ -35,7 +67,6 @@ export class CityCardComponent implements OnInit {
         }
       })
     }
-    console.log( JSON.parse(localStorage.getItem('favCities')))
   }
   toggleAdded(event: Event,city: City) {
     event.preventDefault();
@@ -62,6 +93,5 @@ export class CityCardComponent implements OnInit {
         }
       })
     }
-    console.log( JSON.parse(localStorage.getItem('addedCities')))
   }
 }
