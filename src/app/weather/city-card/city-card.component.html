@@ -19,9 +19,9 @@
         <tbody>
           <tr>
             <td><strong>Temperature:</strong></td>
-            <td *ngIf="K">{{ Math.floor(cityWeather.main.temp) }} &deg;K</td>
+            <td *ngIf="K">{{ Math.floor(cityWeather.main.temp + 273.15) }} &deg;K</td>
             <td *ngIf="C">{{ Math.floor(cityWeather.main.temp) }} &deg;C</td>
-            <td *ngIf="F">{{ Math.floor(cityWeather.main.temp) }} &deg;F</td>
+            <td *ngIf="F">{{ Math.floor((cityWeather.main.temp * 1.8) + 32) }} &deg;F</td>
           </tr>
           <tr>
             <td><strong>Wind:</strong></td>

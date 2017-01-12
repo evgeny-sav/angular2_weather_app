@@ -16,6 +16,9 @@ export class WeatherComponent implements OnInit{
   weatherData: Promise<City[]>;
   isLoading: boolean = true;
   temperature:string;
+  tempCelsius: boolean = true;
+  tempKelvin: boolean = false;
+  tempFahrenheit: boolean = false;
   dateNow: number = Date.now();
   favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
   addedCities: City[] = JSON.parse(localStorage.getItem('addedCities'));
@@ -34,5 +37,20 @@ export class WeatherComponent implements OnInit{
   }
   toggleTemp(temp: string) {
     this.temperature = temp;
+    if (temp === 'c'){
+      this.tempCelsius = true;
+      this.tempKelvin = false;
+      this.tempFahrenheit = false;
+    } else if (temp === 'k') {
+      this.tempCelsius = false;
+      this.tempKelvin = true;
+      this.tempFahrenheit = false;
+    } else if (temp === 'f') {
+      this.tempCelsius = false;
+      this.tempKelvin = false;
+      this.tempFahrenheit = true;
+    }
+
+
   }
 }
