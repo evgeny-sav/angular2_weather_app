@@ -9,7 +9,7 @@ import {City} from "../../shared/city.model";
   providers: [ WeatherService ]
 })
 export class CitySearchBarComponent implements OnInit {
-  search: string;
+  search: string = '';
   city: City[];
   isLoading: boolean = false;
 

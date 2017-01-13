@@ -5,7 +5,7 @@
       <input type="text" class="form-control" #cityName placeholder="Search" value="">
     </div>
     <div class="col-md-2">
-      <button type="submit" class="btn btn-info btn-block">Find</button>
+      <button type="submit" class="btn btn-info btn-block" [disabled]="search.length < 1">Find</button>
     </div>
     <div class="col-md-2">
       <button type="reset" class="btn btn-info btn-block">Reset</button>
