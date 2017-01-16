@@ -5,7 +5,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
 import { WeatherComponent, CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent }  from './';
-import {CityWeatherPipe} from "./weather/cityWeather.pipe";
+import { CityWeatherPipe } from "./weather/cityWeather.pipe";
+import { FromStoragePipe } from "./weather/fromStorage.pipe";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import {CityWeatherPipe} from "./weather/cityWeather.pipe";
     FooterComponent,
     CitySearchBarComponent,
     WeatherComponent,
-    CityWeatherPipe
+    CityWeatherPipe,
+    FromStoragePipe
   ],
   bootstrap: [
     AppComponent

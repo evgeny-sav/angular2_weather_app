@@ -1,7 +1,13 @@
-<h1>{{search.search | json }}</h1>
 <div class="panel panel-primary">
-  <div class="panel-heading">
-    <div class="panel-title">{{ cityWeather.name }}</div>
+  <div class="panel-heading clearfix">
+    <div class="panel-title">
+      <span class="pull-left">{{ cityWeather.name }}</span>
+      <div class="pull-right btn-group">
+        <a class="btn btn-primary" (click)="toggleFav($event, cityWeather)"><span [class.glyphicon-star]="isFav" [class.glyphicon-star-empty]="!isFav" class="glyphicon"></span></a>
+        <a class="btn btn-primary" (click)="toggleAdded($event, cityWeather)"><span [class.glyphicon-minus]="isAdded" [class.glyphicon-plus]="!isAdded" class="glyphicon"></span></a>
+      </div>
+    </div>
+
   </div>
   <div class="panel-body">
     <div class="col-md-6">
@@ -13,11 +19,13 @@
         <tbody>
           <tr>
             <td><strong>Temperature:</strong></td>
-            <td>{{ cityWeather.main.temp }}</td>
+            <td *ngIf="K">{{ Math.floor(cityWeather.main.temp + 273.15) }} &deg;K</td>
+            <td *ngIf="C">{{ Math.floor(cityWeather.main.temp) }} &deg;C</td>
+            <td *ngIf="F">{{ Math.floor((cityWeather.main.temp * 1.8) + 32) }} &deg;F</td>
           </tr>
           <tr>
             <td><strong>Wind:</strong></td>
-            <td>{{ cityWeather.wind.speed }}</td>
+            <td>{{ cityWeather.wind.speed }} mps</td>
           </tr>
           <tr>
             <td><strong>Humidity:</strong></td>

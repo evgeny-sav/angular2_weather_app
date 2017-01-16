@@ -1,19 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { WeatherService } from './weather.service';
 import { WeatherData, City } from '../shared';
+import { HeaderComponent } from "../header/header.component";
 
 
 @Component({
   selector: 'weather',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: require('./weather.component.html'),
   styles: [require('./weather.component.scss')],
   providers: [ WeatherService ]
 })
 export class WeatherComponent implements OnInit{
-  @Input() searchedCyties: City[];
+  @Input() header: HeaderComponent;
   weatherData: Promise<City[]>;
   isLoading: boolean = true;
+  temperature:string;
+  tempCelsius: boolean = true;
+  tempKelvin: boolean = false;
+  tempFahrenheit: boolean = false;
   dateNow: number = Date.now();
+  favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
+  addedCities: City[] = JSON.parse(localStorage.getItem('addedCities'));
 
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {
@@ -26,5 +34,23 @@ export class WeatherComponent implements OnInit{
         this.isLoading = false;
         return data.list;
       })
+  }
+  toggleTemp(temp: string) {
+    this.temperature = temp;
+    if (temp === 'c'){
+      this.tempCelsius = true;
+      this.tempKelvin = false;
+      this.tempFahrenheit = false;
+    } else if (temp === 'k') {
+      this.tempCelsius = false;
+      this.tempKelvin = true;
+      this.tempFahrenheit = false;
+    } else if (temp === 'f') {
+      this.tempCelsius = false;
+      this.tempKelvin = false;
+      this.tempFahrenheit = true;
+    }
+
+
   }
 }

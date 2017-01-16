@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styles: [require('./app.component.scss')]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  ngOnInit() {
+    if (_.isNull(localStorage.getItem('favCities'))) {
+      localStorage.setItem('favCities', JSON.stringify([]))
+    }
+    if (_.isNull(localStorage.getItem('addedCities'))) {
+      localStorage.setItem('addedCities', JSON.stringify([]))
+    }
+  }
 }
