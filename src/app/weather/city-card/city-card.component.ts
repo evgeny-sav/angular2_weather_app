@@ -22,6 +22,7 @@ export class CityCardComponent implements OnInit {
 
 
   ngOnInit() {
+    //console.log(this.cityWeather)
     switch (this.temperature) {
       case 'k': this.K = true;
       break;
