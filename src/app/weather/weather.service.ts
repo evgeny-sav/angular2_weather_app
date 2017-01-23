@@ -12,8 +12,17 @@ const MOCK_DATA_URL = './mock-data.json';
 
 @Injectable()
 export class WeatherService {
+  weatherIn: string;
 
   constructor(private http: Http) {}
+
+  getWeatherIn() {
+    return this.weatherIn;
+  }
+
+  setWeatherIn(deg:string) {
+    this.weatherIn = deg;
+  }
 
   getWeather(): Promise<WeatherData> {
     return this.http.get(URL)

@@ -26,10 +26,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyBkaXS2XRi4EaDJ99KpfZSpkm4RQt8-auY'})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBkaXS2XRi4EaDJ99KpfZSpkm4RQt8-auY'}),
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     AppComponent,

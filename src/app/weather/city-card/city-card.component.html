@@ -10,19 +10,15 @@
 
   </div>
   <div class="panel-body">
-    <div class="col-md-6">
-      <!--<google-map [lat]="cityWeather.coord.lat" [lng]="cityWeather.coord.lon" [cityName]="cityWeather.name"></google-map>-->
+    <div class="temperature-block col-md-6">
+      <h1 class="temperature-number text-center" *ngIf="K">{{ Math.floor(cityWeather.main.temp + 273.15) }} &deg;K</h1>
+      <h1 class="temperature-number text-center" *ngIf="C">{{ Math.floor(cityWeather.main.temp) }} &deg;C</h1>
+      <h1 class="temperature-number text-center" *ngIf="F">{{ Math.floor((cityWeather.main.temp * 1.8) + 32) }} &deg;F</h1>
     </div>
     <div class="col-md-6">
       <p class="h4">{{dateNow | date:'d MMMM y  H:mm'}}</p>
       <table class="table table-striped table-hover">
         <tbody>
-          <tr>
-            <td><strong>Temperature:</strong></td>
-            <td *ngIf="K">{{ Math.floor(cityWeather.main.temp + 273.15) }} &deg;K</td>
-            <td *ngIf="C">{{ Math.floor(cityWeather.main.temp) }} &deg;C</td>
-            <td *ngIf="F">{{ Math.floor((cityWeather.main.temp * 1.8) + 32) }} &deg;F</td>
-          </tr>
           <tr>
             <td><strong>Wind:</strong></td>
             <td>{{ cityWeather.wind.speed }} mps</td>

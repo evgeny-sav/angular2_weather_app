@@ -1,5 +1,6 @@
 import {Component, Input, ChangeDetectionStrategy, OnInit} from "@angular/core";
 import { City } from "../../shared";
+import { WeatherService } from '../weather.service';
 import * as _ from 'lodash';
 
 
@@ -7,7 +8,8 @@ import * as _ from 'lodash';
   selector: 'city-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: require('./city-card.component.html'),
-  styles: [require('./city-card.component.scss')]
+  styles: [require('./city-card.component.scss')],
+  providers: [WeatherService]
 })
 export class CityCardComponent implements OnInit {
   @Input() cityWeather: City;
@@ -16,12 +18,15 @@ export class CityCardComponent implements OnInit {
   isFav = false;
   isAdded = false;
   Math:Math = Math;
+
   K:boolean = false;
   C:boolean = false;
   F:boolean = false;
 
-
+  constructor(private weatherService: WeatherService) {}
   ngOnInit() {
+    this.temperature = this.weatherService.getWeatherIn();
+
     switch (this.temperature) {
       case 'k': this.K = true;
       break;

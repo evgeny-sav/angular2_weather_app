@@ -1,10 +1,10 @@
 <h4>Temperature:</h4>
 <div class="checkbox">
-  <label class="h4"><input type="radio" id="kelvin" name="temp" value="k" (change)="toggleTemp(tempK.value)" #tempK [checked]="tempKelvin"> &deg;K </label>
+  <label class="h4"><input type="radio" id="kelvin" name="temp" value="k" (change)="setTemp(tempK.value)" #tempK [checked]="tempKelvin"> &deg;K </label>
 </div>
 <div class="checkbox">
-  <label class="h4"><input type="radio" id="celsius" name="temp" value="c" (change)="toggleTemp(tempC.value)" #tempC [checked]="tempCelsius"> &deg;C </label>
+  <label class="h4"><input type="radio" id="celsius" name="temp" value="c" (change)="setTemp(tempC.value)" #tempC [checked]="tempCelsius"> &deg;C </label>
 </div>
 <div class="checkbox">
-  <label class="h4"><input type="radio" id="fahrenheit" name="temp" value="f" (change)="toggleTemp(tempF.value)" #tempF [checked]="tempFahrenheit"> &deg;F </label>
+  <label class="h4"><input type="radio" id="fahrenheit" name="temp" value="f" (change)="setTemp(tempF.value)" #tempF [checked]="tempFahrenheit"> &deg;F </label>
 </div>
