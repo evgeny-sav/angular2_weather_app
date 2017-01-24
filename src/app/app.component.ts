@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as _ from 'lodash';
+import { WeatherService } from './weather/weather.service';
 
 
 @Component({
@@ -9,6 +10,9 @@ import * as _ from 'lodash';
 })
 
 export class AppComponent implements OnInit{
+
+  constructor(private weatherService: WeatherService) {}
+
   ngOnInit() {
     if (_.isNull(localStorage.getItem('favCities'))) {
       localStorage.setItem('favCities', JSON.stringify([]))

@@ -5,12 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
-import { WeatherComponent, CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent }  from './';
+import { CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent }  from './';
 import { CityWeatherPipe } from "./weather/cityWeather.pipe";
 import { FromStoragePipe } from "./weather/fromStorage.pipe";
 
 import { TestComponent } from './test/test.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import {WeatherService} from "./weather/weather.service";
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,6 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     CitySearchBarComponent,
-    WeatherComponent,
     CityWeatherPipe,
     FromStoragePipe,
     SearchComponent,
@@ -48,6 +48,9 @@ const appRoutes: Routes = [
 
     TestComponent,
     PageNotFoundComponent
+  ],
+  providers: [
+    WeatherService
   ],
   bootstrap: [
     AppComponent

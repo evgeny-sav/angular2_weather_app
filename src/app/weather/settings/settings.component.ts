@@ -4,19 +4,18 @@ import { WeatherService } from '../weather.service';
 @Component({
   selector: 'settings',
   template: require('./settings.component.html'),
-  providers: [WeatherService]
 })
 export class SettingsComponent implements OnInit{
   tempCelsius: boolean;
   tempKelvin: boolean;
   tempFahrenheit: boolean;
-  temperature:string;
+  temperature: string;
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
     this.temperature = this.weatherService.getWeatherIn();
-    this.toggleTemp(this.temperature);
+    this.setTemp(this.temperature)
   }
 
   setTemp(temp: string) {
@@ -25,19 +24,19 @@ export class SettingsComponent implements OnInit{
   }
 
   toggleTemp(temp: string) {
-    if (temp === 'c'){
+    if (temp === 'metric'){
 
       this.tempCelsius = true;
       this.tempKelvin = false;
       this.tempFahrenheit = false;
 
-    } else if (temp === 'k') {
+    } else if (temp === 'default') {
 
       this.tempCelsius = false;
       this.tempKelvin = true;
       this.tempFahrenheit = false;
 
-    } else if (temp === 'f') {
+    } else if (temp === 'imperial') {
 
       this.tempCelsius = false;
       this.tempKelvin = false;

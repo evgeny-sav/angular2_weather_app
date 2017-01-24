@@ -12,9 +12,11 @@ import { WeatherService } from '../weather.service';
 export class SearchComponent implements OnInit{
   isLoading: boolean = true;
   weatherData: Promise<City[]>;
+  // temperature: string;
 
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {
+    // this.temperature = this.weatherService.getWeatherIn();
     this.weatherData = this.getList();
   }
 

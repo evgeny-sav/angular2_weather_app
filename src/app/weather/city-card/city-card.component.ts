@@ -9,7 +9,6 @@ import * as _ from 'lodash';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: require('./city-card.component.html'),
   styles: [require('./city-card.component.scss')],
-  providers: [WeatherService]
 })
 export class CityCardComponent implements OnInit {
   @Input() cityWeather: City;
@@ -26,13 +25,14 @@ export class CityCardComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {
     this.temperature = this.weatherService.getWeatherIn();
+    console.log(this.temperature)
 
     switch (this.temperature) {
-      case 'k': this.K = true;
+      case 'default': this.K = true;
       break;
-      case 'c': this.C = true;
+      case 'metric': this.C = true;
       break;
-      case'f': this.F = true;
+      case'imperial': this.F = true;
       break;
       default: this.C = true;
     }
