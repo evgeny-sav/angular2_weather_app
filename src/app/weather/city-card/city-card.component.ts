@@ -1,8 +1,7 @@
-import {Component, Input, ChangeDetectionStrategy, OnInit} from "@angular/core";
-import { City } from "../../shared";
+import {Component, Input, ChangeDetectionStrategy, OnInit} from '@angular/core';
+import { City } from '../../shared';
 import { WeatherService } from '../weather.service';
 import * as _ from 'lodash';
-
 
 @Component({
   selector: 'city-card',
@@ -18,6 +17,9 @@ export class CityCardComponent implements OnInit {
   isAdded = false;
   Math:Math = Math;
 
+  highlightTemp: number;
+  windDir: number;
+
   K:boolean = false;
   C:boolean = false;
   F:boolean = false;
@@ -25,7 +27,8 @@ export class CityCardComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {
     this.temperature = this.weatherService.getWeatherIn();
-    console.log(this.temperature)
+    this.highlightTemp = Math.floor(this.cityWeather.main.temp);
+    this.windDir = Math.floor(this.cityWeather.wind.deg);
 
     switch (this.temperature) {
       case 'default': this.K = true;
@@ -39,7 +42,6 @@ export class CityCardComponent implements OnInit {
 
     let favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
     let addedCities: City[] = JSON.parse(localStorage.getItem('addedCities'));
-
 
     _.each(favCities, (city: City) => {
       if (city.id === this.cityWeather.id) {

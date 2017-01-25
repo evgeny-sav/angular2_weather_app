@@ -6,8 +6,10 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
 import { CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent }  from './';
-import { CityWeatherPipe } from "./weather/cityWeather.pipe";
-import { FromStoragePipe } from "./weather/fromStorage.pipe";
+import { CityWeatherPipe } from "./weather/city-weather.pipe";
+import { FromStoragePipe } from "./weather/from-storage.pipe";
+import { WeatherHighlightDirective } from './weather/weather-highlight.directive';
+import { WindDirectionDirective } from './weather/wind-direction.directive';
 
 import { TestComponent } from './test/test.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     ListComponent,
     SettingsComponent,
     FavouriteComponent,
-
+    WeatherHighlightDirective,
+    WindDirectionDirective,
     TestComponent,
     PageNotFoundComponent
   ],
