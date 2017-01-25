@@ -1,5 +1,5 @@
-import {Component, OnInit} from "@angular/core";
-import {City, WeatherData} from "../../shared";
+import {Component, OnInit} from '@angular/core';
+import {City, WeatherData} from '../../shared';
 import { WeatherService } from '../weather.service';
 
 @Component({
@@ -12,11 +12,9 @@ import { WeatherService } from '../weather.service';
 export class SearchComponent implements OnInit{
   isLoading: boolean = true;
   weatherData: Promise<City[]>;
-  // temperature: string;
 
   constructor(private weatherService: WeatherService) {}
   ngOnInit() {
-    // this.temperature = this.weatherService.getWeatherIn();
     this.weatherData = this.getList();
   }
 

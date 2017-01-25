@@ -11,9 +11,7 @@
   </div>
   <div class="panel-body">
     <div class="temperature-block col-md-6">
-      <h1 class="temperature-number text-center" *ngIf="K" [weather-highlight]="highlightTemp">{{ Math.floor(cityWeather.main.temp + 273.15) }} &deg;K</h1>
-      <h1 class="temperature-number text-center" *ngIf="C" [weather-highlight]="highlightTemp">{{ Math.floor(cityWeather.main.temp) }} &deg;C</h1>
-      <h1 class="temperature-number text-center" *ngIf="F" [weather-highlight]="highlightTemp">{{ Math.floor((cityWeather.main.temp * 1.8) + 32) }} &deg;F</h1>
+      <h1 class="temperature-number text-center" [weather-highlight]="highlightTemp">{{ Math.floor(cityWeather.main.temp) | convertTemp: temperature }}</h1>
     </div>
     <div class="col-md-6">
       <p class="h4">{{dateNow | date:'d MMMM y  H:mm'}}</p>

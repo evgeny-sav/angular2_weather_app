@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CityCardComponent, GoogleMapComponent, HeaderComponent, FooterComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent }  from './';
 import { CityWeatherPipe } from "./weather/city-weather.pipe";
 import { FromStoragePipe } from "./weather/from-storage.pipe";
+import { ConvertTemperaturePipe } from "./weather/convert-temperature.pipe";
 import { WeatherHighlightDirective } from './weather/weather-highlight.directive';
 import { WindDirectionDirective } from './weather/wind-direction.directive';
 
@@ -41,14 +42,18 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     CitySearchBarComponent,
-    CityWeatherPipe,
-    FromStoragePipe,
     SearchComponent,
     ListComponent,
     SettingsComponent,
     FavouriteComponent,
+
+    CityWeatherPipe,
+    FromStoragePipe,
+    ConvertTemperaturePipe,
+
     WeatherHighlightDirective,
     WindDirectionDirective,
+
     TestComponent,
     PageNotFoundComponent
   ],
