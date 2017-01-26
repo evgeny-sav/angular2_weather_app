@@ -1,0 +1,5 @@
+<city-search-bar #search [class.hidden]="isLoading"></city-search-bar>
+<div class="text-center" [class.hidden]="!isLoading"><div class="loader"></div></div>
+<google-map *ngFor="let cityWeather of search.city | cityWeatherPipe:search.search" [lat]="cityWeather.coord.lat" [lng]="cityWeather.coord.lon" [cityName]="cityWeather.name"></google-map>
+<city-card *ngFor="let cityWeather of ( weatherData | async ) | cityWeatherPipe:search.search" [cityWeather]="cityWeather" [temperature]="temperature"></city-card>
+<city-card *ngFor="let cityWeather of search.city | cityWeatherPipe:search.search" [cityWeather]="cityWeather" [temperature]="temperature"></city-card>

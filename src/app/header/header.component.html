@@ -1,17 +1,17 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cloud"></span> Weather App</a>
+      <a routerLink="/" routerLinkActive="active" class="navbar-brand"><span class="glyphicon glyphicon-cloud"></span> Weather App</a>
     </div>
 
     <div>
       <ul class="nav navbar-nav">
-        <li (click)="favourite_state()"><a href="#">Favourite <span class="sr-only">(current)</span></a></li>
-        <li (click)="list_state()"><a href="#">List</a></li>
-        <li (click)="search_state()"><a href="#"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Favourite</a></li>
+        <li><a routerLink="/list" routerLinkActive="active">List</a></li>
+        <li><a routerLink="/search" routerLinkActive="active"><span class="glyphicon glyphicon-search"></span> Search</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li (click)="settings_state()"><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li><a routerLink="/settings" routerLinkActive="active"><span class="glyphicon glyphicon-cog"></span></a></li>
       </ul>
     </div>
   </div>

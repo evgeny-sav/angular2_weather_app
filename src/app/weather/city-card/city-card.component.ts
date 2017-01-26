@@ -1,13 +1,13 @@
-import {Component, Input, ChangeDetectionStrategy, OnInit} from "@angular/core";
-import { City } from "../../shared";
+import {Component, Input, ChangeDetectionStrategy, OnInit} from '@angular/core';
+import { City } from '../../shared';
+import { WeatherService } from '../weather.service';
 import * as _ from 'lodash';
-
 
 @Component({
   selector: 'city-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: require('./city-card.component.html'),
-  styles: [require('./city-card.component.scss')]
+  styles: [require('./city-card.component.scss')],
 })
 export class CityCardComponent implements OnInit {
   @Input() cityWeather: City;
@@ -16,25 +16,34 @@ export class CityCardComponent implements OnInit {
   isFav = false;
   isAdded = false;
   Math:Math = Math;
+
+  iconUrl: string = 'http://openweathermap.org/img/w/';
+
+  highlightTemp: number;
+  windDir: number;
+
   K:boolean = false;
   C:boolean = false;
   F:boolean = false;
 
-
+  constructor(private weatherService: WeatherService) {}
   ngOnInit() {
+    this.temperature = this.weatherService.getWeatherIn();
+    this.highlightTemp = Math.floor(this.cityWeather.main.temp);
+    this.windDir = Math.floor(this.cityWeather.wind.deg);
+
     switch (this.temperature) {
-      case 'k': this.K = true;
+      case 'default': this.K = true;
       break;
-      case 'c': this.C = true;
+      case 'metric': this.C = true;
       break;
-      case'f': this.F = true;
+      case'imperial': this.F = true;
       break;
       default: this.C = true;
     }
 
     let favCities: City[] = JSON.parse(localStorage.getItem('favCities'));
     let addedCities: City[] = JSON.parse(localStorage.getItem('addedCities'));
-
 
     _.each(favCities, (city: City) => {
       if (city.id === this.cityWeather.id) {

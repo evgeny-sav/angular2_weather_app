@@ -1,0 +1,14 @@
+.temperature-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 170px;
+
+  .temperature-number {
+    font-size: 13em;
+  }
+}
+
+td i {
+  font-size: 20px;
+}
