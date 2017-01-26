@@ -17,6 +17,8 @@ export class CityCardComponent implements OnInit {
   isAdded = false;
   Math:Math = Math;
 
+  iconUrl: string = 'http://openweathermap.org/img/w/';
+
   highlightTemp: number;
   windDir: number;
 

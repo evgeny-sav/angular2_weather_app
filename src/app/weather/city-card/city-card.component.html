@@ -14,7 +14,50 @@
       <h1 class="temperature-number text-center" [weather-highlight]="highlightTemp">{{ Math.floor(cityWeather.main.temp) | convertTemp: temperature }}</h1>
     </div>
     <div class="col-md-6">
-      <p class="h4">{{dateNow | date:'d MMMM y  H:mm'}}</p>
+      <p class="h4 text-center" [ngSwitch]="cityWeather.weather[0].icon">
+        <img class="icon" src="{{iconUrl}}01d.png" *ngSwitchCase="'01d'">
+        <img class="icon" src="{{iconUrl}}01n.png" *ngSwitchCase="'01n'">
+
+        <img class="icon" src="{{iconUrl}}02d.png" *ngSwitchCase="'02d'">
+        <img class="icon" src="{{iconUrl}}02n.png" *ngSwitchCase="'02n'">
+
+        <img class="icon" src="{{iconUrl}}03d.png" *ngSwitchCase="'03d'">
+        <img class="icon" src="{{iconUrl}}03n.png" *ngSwitchCase="'03n'">
+
+        <img class="icon" src="{{iconUrl}}04d.png" *ngSwitchCase="'04d'">
+        <img class="icon" src="{{iconUrl}}04n.png" *ngSwitchCase="'04n'">
+
+        <img class="icon" src="{{iconUrl}}05d.png" *ngSwitchCase="'05d'">
+        <img class="icon" src="{{iconUrl}}05n.png" *ngSwitchCase="'05n'">
+
+        <img class="icon" src="{{iconUrl}}06d.png" *ngSwitchCase="'06d'">
+        <img class="icon" src="{{iconUrl}}06n.png" *ngSwitchCase="'06n'">
+
+        <img class="icon" src="{{iconUrl}}07d.png" *ngSwitchCase="'07d'">
+        <img class="icon" src="{{iconUrl}}07n.png" *ngSwitchCase="'07n'">
+
+        <img class="icon" src="{{iconUrl}}08d.png" *ngSwitchCase="'08d'">
+        <img class="icon" src="{{iconUrl}}08n.png" *ngSwitchCase="'08n'">
+
+        <img class="icon" src="{{iconUrl}}09d.png" *ngSwitchCase="'09d'">
+        <img class="icon" src="{{iconUrl}}09n.png" *ngSwitchCase="'09n'">
+
+        <img class="icon" src="{{iconUrl}}10d.png" *ngSwitchCase="'10d'">
+        <img class="icon" src="{{iconUrl}}10n.png" *ngSwitchCase="'10n'">
+
+        <img class="icon" src="{{iconUrl}}11d.png" *ngSwitchCase="'11d'">
+        <img class="icon" src="{{iconUrl}}11n.png" *ngSwitchCase="'11n'">
+
+        <img class="icon" src="{{iconUrl}}12d.png" *ngSwitchCase="'12d'">
+        <img class="icon" src="{{iconUrl}}12n.png" *ngSwitchCase="'12n'">
+
+        <img class="icon" src="{{iconUrl}}13d.png" *ngSwitchCase="'13d'">
+        <img class="icon" src="{{iconUrl}}13n.png" *ngSwitchCase="'13n'">
+
+        <img class="icon" src="{{iconUrl}}50d.png" *ngSwitchCase="'50d'">
+        <img class="icon" src="{{iconUrl}}50n.png" *ngSwitchCase="'50n'">
+
+      </p>
       <table class="table table-striped table-hover">
         <tbody>
           <tr>
