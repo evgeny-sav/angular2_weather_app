@@ -8,3 +8,56 @@
 <div class="checkbox">
   <label class="h4"><input type="radio" id="fahrenheit" name="temp" value="imperial" (change)="setTemp(tempF.value)" #tempF [checked]="tempFahrenheit"> &deg;F </label>
 </div>
+
+
+<div class="row">
+  <div class="col-xs-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">Behavior Subject</div>
+      <div class="panel-body">
+        <p class="h3 text-center" id="output">{{ num }}</p>
+      </div>
+      <div class="panel-footer text-center">
+        <button class="btn btn-block btn-primary" id="btn" (click)="addOne()">++</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">5 Operators</div>
+      <div class="panel-body">
+        <p class="h3 text-center">{{ fiveOperators }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">Flat Map</div>
+      <div class="panel-body">
+        <p class="h3 text-center">{{ flat }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">MultiThreading</div>
+      <div class="panel-body">
+        <p class="h3 text-center">{{ multithread }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">Scheduler</div>
+      <div class="panel-body">
+        <p>{{ beforeSched }} <code>{{ timeB | date: 'HH:mm:ss'}}</code></p>
+        <p class="h3 text-center">{{ sched }} <code>{{ timeD | date: 'HH:mm:ss'}}</code></p>
+        <p>{{ afterSched }} <code>{{ timeA | date: 'HH:mm:ss'}}</code></p>
+      </div>
+    </div>
+  </div>
+</div>
+
