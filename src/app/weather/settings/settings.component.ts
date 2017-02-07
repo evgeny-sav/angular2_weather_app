@@ -90,24 +90,27 @@ export class SettingsComponent implements OnInit{
   }
 
   toggleTemp(temp: string) {
-    if (temp === 'metric'){
-
-      this.tempCelsius = true;
-      this.tempKelvin = false;
-      this.tempFahrenheit = false;
-
-    } else if (temp === 'default') {
-
-      this.tempCelsius = false;
-      this.tempKelvin = true;
-      this.tempFahrenheit = false;
-
-    } else if (temp === 'imperial') {
-
-      this.tempCelsius = false;
-      this.tempKelvin = false;
-      this.tempFahrenheit = true;
-
+    switch(temp) {
+      case 'metric':
+        this.tempCelsius = true;
+        this.tempKelvin = false;
+        this.tempFahrenheit = false;
+        break;
+      case 'default':
+        this.tempCelsius = false;
+        this.tempKelvin = true;
+        this.tempFahrenheit = false;
+        break;
+      case 'imperial':
+        this.tempCelsius = false;
+        this.tempKelvin = false;
+        this.tempFahrenheit = true;
+        break;
+      default:
+        this.tempCelsius = true;
+        this.tempKelvin = false;
+        this.tempFahrenheit = false;
+        break;
     }
   }
 }
