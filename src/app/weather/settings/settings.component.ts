@@ -1,10 +1,13 @@
 import {Component, OnInit} from "@angular/core";
 import { WeatherService } from '../weather.service';
 import * as Rx from 'rxjs';
+import { LoggerService } from '../../shared/logger.service';
 
 @Component({
   selector: 'settings',
-  template: require('./settings.component.html'),
+  templateUrl: './settings.component.html',
+  providers: [LoggerService]
+
 })
 export class SettingsComponent implements OnInit{
   tempCelsius: boolean;
@@ -27,9 +30,10 @@ export class SettingsComponent implements OnInit{
 
 
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService, private loggerService: LoggerService) {}
 
   ngOnInit() {
+    this.loggerService.log('Settings component');
     this.temperature = this.weatherService.getWeatherIn();
     this.setTemp(this.temperature);
 

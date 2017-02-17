@@ -1,8 +1,8 @@
 import { NgModule }      from '@angular/core';
-import {CommonModule} from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
-import { WeatherService } from "./weather.service";
+import { WeatherService } from './weather.service';
 
 import { CityCardComponent, GoogleMapComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent } from './';
 import { PageNotFoundComponent } from '../pagenotfound/pagenotfound.component';
