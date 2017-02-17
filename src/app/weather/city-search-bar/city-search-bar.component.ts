@@ -1,22 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import { WeatherService } from "../weather.service";
-import {City} from "../../shared/city.model";
+import { WeatherService } from '../weather.service';
+import {City} from '../../shared';
+import { LoggerService } from '../../shared/logger.service';
 
 @Component({
   selector: 'city-search-bar',
-  template: require('./city-search-bar.component.html'),
-  styles: [require('./city-search-bar.component.scss')],
-  providers: [ WeatherService ]
+  templateUrl: './city-search-bar.component.html',
+  styleUrls: ['./city-search-bar.component.scss'],
+  providers: [ WeatherService, LoggerService ]
 })
 export class CitySearchBarComponent implements OnInit {
   search: string = '';
   city: City[];
   isLoading: boolean = false;
 
-  // constructor() {
-  //   this.search = '';
-  // }
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService, private loggerService: LoggerService) {}
 
   ngOnInit() {
   }
@@ -29,9 +27,11 @@ export class CitySearchBarComponent implements OnInit {
   findCities(event: Event, value: string) {
     event.preventDefault();
     this.isLoading = true;
+    this.loggerService.log('Getting ' + value + ' city data ...');
     this.weatherService.getCityWeather(value)
       .then((city: City) => {
         this.isLoading = false;
+        this.loggerService.log('Got ' + value + ' city data.');
         this.city = new Array(city);
       });
   }

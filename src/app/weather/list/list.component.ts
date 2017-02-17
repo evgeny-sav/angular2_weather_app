@@ -1,9 +1,19 @@
-import {Component} from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { LoggerService } from '../../shared/logger.service';
 
 @Component({
   selector: 'list',
-  template: require('./list.component.html')
+  templateUrl: './list.component.html',
+  providers: [
+    LoggerService
+  ]
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
 
+  constructor(private loggerService: LoggerService) {
+  }
+
+  ngOnInit() {
+    this.loggerService.log('List component');
+  }
 }

@@ -2,12 +2,14 @@ import {Component, Input, ChangeDetectionStrategy, OnInit} from '@angular/core';
 import { City } from '../../shared';
 import { WeatherService } from '../weather.service';
 import * as _ from 'lodash';
+import { LoggerService } from '../../shared/logger.service';
 
 @Component({
   selector: 'city-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: require('./city-card.component.html'),
-  styles: [require('./city-card.component.scss')],
+  templateUrl: './city-card.component.html',
+  styleUrls: ['./city-card.component.scss'],
+  providers: [LoggerService]
 })
 export class CityCardComponent implements OnInit {
   @Input() cityWeather: City;
@@ -26,7 +28,7 @@ export class CityCardComponent implements OnInit {
   C:boolean = false;
   F:boolean = false;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService, private loggerService: LoggerService) {}
   ngOnInit() {
     this.temperature = this.weatherService.getWeatherIn();
     this.highlightTemp = Math.floor(this.cityWeather.main.temp);
@@ -68,11 +70,13 @@ export class CityCardComponent implements OnInit {
       favCities.push(city);
 
       localStorage.setItem('favCities' , JSON.stringify(favCities));
+      this.loggerService.log(city.name + ' was marked as favourite');
     } else {
       favCities.map((c: City, i: number) => {
         if (c.id == city.id) {
           favCities.splice(i, 1);
           localStorage.setItem('favCities' , JSON.stringify(favCities));
+          this.loggerService.log(city.name + ' was removed from favourite');
         }
       })
     }
