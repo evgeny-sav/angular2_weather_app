@@ -26,11 +26,6 @@ module.exports = function (envOptions) {
 
     module: {
       rules: [
-        // {
-        //   test: /\.ts$/,
-        //   loaders: ['awesome-typescript-loader'],
-        //   exclude: [/\.(spec|e2e)\.ts$/]
-        // },
         {
           test: /\.html$/,
           loader: 'html-loader'
@@ -71,7 +66,6 @@ module.exports = function (envOptions) {
     ]
   };
   if (envOptions.MODE === 'prod') {
-
     config.module.rules.push(
       {test: /\.ts$/, loaders: ['@ngtools/webpack']}
     );
@@ -81,7 +75,7 @@ module.exports = function (envOptions) {
     }));
   } else {
     config.module.rules.push(
-      { test: /\.ts$/, loaders: ['awesome-typescript-loader'] }
+      { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] }
     );
   }
 
