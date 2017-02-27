@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { WeatherService } from './weather.service';
 
-import { CityCardComponent, CityComponent, GoogleMapComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent } from './';
+import { CityCardComponent, WeatherDetailComponent, CityComponent, GoogleMapComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent } from './';
 import { PageNotFoundComponent } from '../pagenotfound/pagenotfound.component';
 import { CityWeatherPipe } from "./city-weather.pipe";
 import { FromStoragePipe } from "./from-storage.pipe";
@@ -27,6 +27,7 @@ import { WindDirectionDirective } from './wind-direction.directive';
     FavouriteComponent,
     PageNotFoundComponent,
     CityCardComponent,
+    WeatherDetailComponent,
     CityComponent,
     GoogleMapComponent,
     CityWeatherPipe,
