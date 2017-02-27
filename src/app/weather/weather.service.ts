@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestMethod, URLSearchParams, Headers } from '@angular/http';
 import { WeatherData, City } from '../shared';
 
 const LAT: number = 52.42;
 const LNG: number = 30.92;
 const NUM_OF_CITIES: number = 50;
-const UNITS: string = 'metric'; //Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+const UNITS: string = 'metric';
 const API_ID: string = 'e24c10e3dcc3a36c20648021cb566b82';
-const URL: string = `http://api.openweathermap.org/data/2.5/find?lat=${LAT}&lon=${LNG}&cnt=${NUM_OF_CITIES}&units=${UNITS}&APPID=${API_ID}`;
+const URL: string = 'http://api.openweathermap.org/data/2.5/';
 const MOCK_DATA_URL = './mock-data.json';
 
 @Injectable()
@@ -25,7 +25,21 @@ export class WeatherService {
   }
 
   getWeather(): Promise<WeatherData> {
-    return this.http.get(URL)
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+
+    let params = new URLSearchParams();
+    params.append('lat', LAT.toString());
+    params.append('lon', LNG.toString());
+    params.append('cnt', NUM_OF_CITIES.toString());
+    params.append('units', UNITS);
+    params.append('appid', API_ID);
+
+    return this.http.request(URL + 'find', {
+        method: RequestMethod.Get,
+        search: params,
+        headers: headers
+      })
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
@@ -36,7 +50,19 @@ export class WeatherService {
 
 
   getCityWeather(cityName: string): Promise<City> {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${UNITS}&APPID=${API_ID}`)
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+
+    let params = new URLSearchParams();
+    params.append('q', cityName);
+    params.append('units', UNITS);
+    params.append('appid', API_ID);
+
+    return this.http.request(URL + 'weather', {
+        method: RequestMethod.Get,
+        search: params,
+        headers: headers
+      })
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
@@ -45,7 +71,19 @@ export class WeatherService {
   }
 
   getCityWeatherByID(id:number): Promise<City> {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?id=${id}&units=${UNITS}&APPID=${API_ID}`)
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+
+    let params = new URLSearchParams();
+    params.append('id', id.toString());
+    params.append('units', UNITS);
+    params.append('appid', API_ID);
+
+    return this.http.request(URL + 'weather', {
+        method: RequestMethod.Get,
+        search: params,
+        headers: headers
+      })
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
