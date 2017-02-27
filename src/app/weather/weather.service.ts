@@ -44,4 +44,13 @@ export class WeatherService {
         .then((res: Response) => res.json()));
   }
 
+  getCityWeatherByID(id:number): Promise<City> {
+    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?id=${id}&units=${UNITS}&APPID=${API_ID}`)
+      .toPromise()
+      .then((res: Response) => res.json())
+      .catch(() => this.http.get(MOCK_DATA_URL)
+        .toPromise()
+        .then((res: Response) => res.json()));
+  }
+
 }
