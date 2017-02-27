@@ -4,6 +4,7 @@ import { LoggerService } from '../../shared/logger.service';
 @Component({
   selector: 'list',
   templateUrl: './list.component.html',
+  styles: ['.h3 {margin: 0;}'],
   providers: [
     LoggerService
   ]

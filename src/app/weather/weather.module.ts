@@ -1,10 +1,11 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { RouterModule } from '@angular/router';
 
 import { WeatherService } from './weather.service';
 
-import { CityCardComponent, GoogleMapComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent } from './';
+import { CityCardComponent, CityComponent, GoogleMapComponent, CitySearchBarComponent, SearchComponent, ListComponent, SettingsComponent, FavouriteComponent } from './';
 import { PageNotFoundComponent } from '../pagenotfound/pagenotfound.component';
 import { CityWeatherPipe } from "./city-weather.pipe";
 import { FromStoragePipe } from "./from-storage.pipe";
@@ -14,6 +15,7 @@ import { WindDirectionDirective } from './wind-direction.directive';
 
 @NgModule({
   imports: [
+    RouterModule,
     CommonModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBkaXS2XRi4EaDJ99KpfZSpkm4RQt8-auY'}),
   ],
@@ -25,6 +27,7 @@ import { WindDirectionDirective } from './wind-direction.directive';
     FavouriteComponent,
     PageNotFoundComponent,
     CityCardComponent,
+    CityComponent,
     GoogleMapComponent,
     CityWeatherPipe,
     FromStoragePipe,
