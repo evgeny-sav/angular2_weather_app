@@ -5,6 +5,7 @@
       <div class="pull-right btn-group">
         <a class="btn btn-primary" (click)="toggleFav($event, cityWeather)"><span [class.glyphicon-star]="isFav" [class.glyphicon-star-empty]="!isFav" class="glyphicon"></span></a>
         <a class="btn btn-primary" (click)="toggleAdded($event, cityWeather)"><span [class.glyphicon-minus]="isAdded" [class.glyphicon-plus]="!isAdded" class="glyphicon"></span></a>
+        <a class="btn" [class.btn-primary]="!isEditing" [class.btn-success]="isEditing" (click)="toggleEditing($event)"><span [class.glyphicon-pencil]="!isEditing" [class.glyphicon-ok]="isEditing" class="glyphicon"></span></a>
       </div>
     </div>
 
@@ -80,5 +81,50 @@
       </table>
     </div>
   </div>
+
+  <div class="panel-footer" [class.hidden]="!isEditing">
+
+    <form class="form-horizontal" #editCard="ngForm" (ngSubmit)="onSubmit(editCard)" novalidate>
+      <fieldset>
+        <legend>Card's appearance</legend>
+        <div class="form-group">
+          <div class="col-lg-12">
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="icon" ngModel> Weather icon
+              </label>
+
+              <label>
+                <input type="checkbox" name="wind" ngModel> Wind
+              </label>
+
+              <label>
+                <input type="checkbox" name="humidity" ngModel> Humidity
+              </label>
+
+              <label>
+                <input type="checkbox" name="clouds" ngModel> Clouds
+              </label>
+
+              <label>
+                <input type="checkbox" name="pressure" ngModel> Pressure
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-12">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
 </div>
+
 <google-map [lat]="cityWeather.coord.lat" [lng]="cityWeather.coord.lon" [cityName]="cityWeather.name"></google-map>

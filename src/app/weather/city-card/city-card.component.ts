@@ -3,6 +3,7 @@ import { City } from '../../shared';
 import { WeatherService } from '../weather.service';
 import * as _ from 'lodash';
 import { LoggerService } from '../../shared/logger.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'city-card',
@@ -17,6 +18,7 @@ export class CityCardComponent implements OnInit {
   @Input() temperature: string;
   isFav = false;
   isAdded = false;
+  isEditing = true;
   Math:Math = Math;
 
   iconUrl: string = 'http://openweathermap.org/img/w/';
@@ -57,6 +59,14 @@ export class CityCardComponent implements OnInit {
         this.isAdded = true;
       }
     })
+  }
+
+  onSubmit(editCard: NgForm) {
+    console.log(editCard);
+  }
+
+  toggleEditing(event: Event) {
+    this.isEditing = !this.isEditing;
   }
 
   toggleFav(event: Event,city: City) {
