@@ -1,5 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule }   from '@angular/forms';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +18,7 @@ import { WindDirectionDirective } from './wind-direction.directive';
   imports: [
     RouterModule,
     CommonModule,
+    FormsModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBkaXS2XRi4EaDJ99KpfZSpkm4RQt8-auY'}),
   ],
   declarations: [
