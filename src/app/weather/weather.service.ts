@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestMethod, URLSearchParams, Headers } from '@angular/http';
+import { Http, Response, RequestMethod, URLSearchParams, Headers, Request, RequestOptions } from '@angular/http';
 import { WeatherData, City } from '../shared';
 
 const LAT: number = 52.42;
@@ -35,11 +35,16 @@ export class WeatherService {
     params.append('units', UNITS);
     params.append('appid', API_ID);
 
-    return this.http.request(URL + 'find', {
-        method: RequestMethod.Get,
-        search: params,
-        headers: headers
-      })
+    let reqOpts = new RequestOptions({
+      url: URL + 'find',
+      method: RequestMethod.Get,
+      search: params,
+      headers: headers
+    });
+
+    let request = new Request(reqOpts);
+
+    return this.http.request(request)
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
@@ -58,11 +63,16 @@ export class WeatherService {
     params.append('units', UNITS);
     params.append('appid', API_ID);
 
-    return this.http.request(URL + 'weather', {
-        method: RequestMethod.Get,
-        search: params,
-        headers: headers
-      })
+    let reqOpts = new RequestOptions({
+      url: URL + 'weather',
+      method: RequestMethod.Get,
+      search: params,
+      headers: headers
+    });
+
+    let request = new Request(reqOpts);
+
+    return this.http.request(request)
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
@@ -79,11 +89,16 @@ export class WeatherService {
     params.append('units', UNITS);
     params.append('appid', API_ID);
 
-    return this.http.request(URL + 'weather', {
-        method: RequestMethod.Get,
-        search: params,
-        headers: headers
-      })
+    let reqOpts = new RequestOptions({
+      url: URL + 'weather',
+      method: RequestMethod.Get,
+      search: params,
+      headers: headers
+    });
+
+    let request = new Request(reqOpts);
+
+    return this.http.request(request)
       .toPromise()
       .then((res: Response) => res.json())
       .catch(() => this.http.get(MOCK_DATA_URL)
