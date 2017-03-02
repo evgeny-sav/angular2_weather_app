@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { WeatherService } from '../weather.service';
 import {City} from '../../shared';
 import { LoggerService } from '../../shared/logger.service';
@@ -19,8 +20,12 @@ export class CitySearchBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  filterCities(event: Event, value: string = '') {
+  filterCities(event: Event, value: string = '', searchForm: NgForm) {
     event.preventDefault();
+    console.log(searchForm);
+    if (value.length < 4) {
+      return;
+    }
     this.search = value;
   }
 

@@ -18,7 +18,7 @@ export class CityCardComponent implements OnInit {
   @Input() temperature: string;
   isFav = false;
   isAdded = false;
-  isEditing = true;
+  isEditing = false;
   Math:Math = Math;
 
   iconUrl: string = 'http://openweathermap.org/img/w/';
@@ -26,12 +26,15 @@ export class CityCardComponent implements OnInit {
   highlightTemp: number;
   windDir: number;
 
+  cardSettings = {};
+
   K:boolean = false;
   C:boolean = false;
   F:boolean = false;
 
   constructor(private weatherService: WeatherService, private loggerService: LoggerService) {}
   ngOnInit() {
+    this.cardSettings = JSON.parse(localStorage.getItem('cardSettings'))[0];
     this.temperature = this.weatherService.getWeatherIn();
     this.highlightTemp = Math.floor(this.cityWeather.main.temp);
     this.windDir = Math.floor(this.cityWeather.wind.deg);
@@ -62,10 +65,12 @@ export class CityCardComponent implements OnInit {
   }
 
   onSubmit(editCard: NgForm) {
-    console.log(editCard);
+    localStorage.setItem('cardSettings', JSON.stringify([this.cardSettings]));
+    this.toggleEditing();
   }
 
-  toggleEditing(event: Event) {
+
+  toggleEditing() {
     this.isEditing = !this.isEditing;
   }
 

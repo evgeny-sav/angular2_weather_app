@@ -1,8 +1,13 @@
 <div class="row clearfix">
   <div class="col-md-12">
-    <form class="form-group clearfix" (keyup)="filterCities($event, cityName.value)" (submit)="findCities($event, cityName.value)" (reset)="resetInput()">
+    <form class="form-group clearfix" #searchForm="ngForm" (keyup)="filterCities($event, cityName.value, searchForm)" (submit)="findCities($event, cityName.value)" (reset)="resetInput()" novalidate>
     <div class="col-md-8">
-      <input type="text" class="form-control" #cityName placeholder="Search" value="">
+      <input type="text" minlength="4" class="form-control" #cityName="ngModel" name="cityName" placeholder="Search" value="" ngModel>
+      <p class="help-block" *ngIf="cityName.errors && (cityName.dirty || cityName.touched)" >
+        <span [hidden]="!cityName.errors.minlength" class="text-danger">
+          Name must be at least 4 characters long.
+        </span>
+      </p>
     </div>
     <div class="col-md-2">
       <button type="submit" class="btn btn-info btn-block" [disabled]="search.length < 1">Find</button>
