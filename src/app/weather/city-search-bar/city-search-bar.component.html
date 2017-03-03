@@ -13,7 +13,7 @@
       </p>
     </div>
     <div class="col-md-2">
-      <button type="submit" class="btn btn-info btn-block" [disabled]="search.length < 1">Find</button>
+      <button type="submit" class="btn btn-info btn-block" [disabled]="search.length < 4 || cityName.errors">Find</button>
     </div>
     <div class="col-md-2">
       <button type="reset" class="btn btn-info btn-block">Reset</button>
