@@ -2,10 +2,13 @@
   <div class="col-md-12">
     <form class="form-group clearfix" #searchForm="ngForm" (keyup)="filterCities($event, cityName.value, searchForm)" (submit)="findCities($event, cityName.value)" (reset)="resetInput()" novalidate>
     <div class="col-md-8">
-      <input type="text" minlength="4" class="form-control" #cityName="ngModel" name="cityName" placeholder="Search" value="" ngModel>
+      <input type="text" minlength="4" class="form-control" #cityName="ngModel" name="cityName" placeholder="Search" value="" ngModel validateSearch>
       <p class="help-block" *ngIf="cityName.errors && (cityName.dirty || cityName.touched)" >
         <span [hidden]="!cityName.errors.minlength" class="text-danger">
-          Name must be at least 4 characters long.
+          City name must be at least 4 characters long.
+        </span>
+        <span [hidden]="!cityName.errors.invalidSearch" class="text-danger">
+          You can use only English alphabet characters.
         </span>
       </p>
     </div>

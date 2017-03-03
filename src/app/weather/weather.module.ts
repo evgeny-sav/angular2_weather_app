@@ -13,6 +13,7 @@ import { FromStoragePipe } from "./from-storage.pipe";
 import { ConvertTemperaturePipe } from "./convert-temperature.pipe";
 import { WeatherHighlightDirective } from './weather-highlight.directive';
 import { WindDirectionDirective } from './wind-direction.directive';
+import { SearchValidatorDirective } from './city-search-bar/search-validator.directive';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { WindDirectionDirective } from './wind-direction.directive';
     ConvertTemperaturePipe,
     WeatherHighlightDirective,
     WindDirectionDirective,
+    SearchValidatorDirective
   ],
   providers: [
     WeatherService

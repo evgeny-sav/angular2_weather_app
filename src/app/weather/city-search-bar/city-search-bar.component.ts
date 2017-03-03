@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { WeatherService } from '../weather.service';
 import {City} from '../../shared';
 import { LoggerService } from '../../shared/logger.service';
+import { SearchValidatorDirective } from './search-validator.directive';
 
 @Component({
   selector: 'city-search-bar',
@@ -22,7 +23,6 @@ export class CitySearchBarComponent implements OnInit {
 
   filterCities(event: Event, value: string = '', searchForm: NgForm) {
     event.preventDefault();
-    console.log(searchForm);
     if (value.length < 4) {
       return;
     }
