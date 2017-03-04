@@ -5,6 +5,7 @@
       <div class="pull-right btn-group">
         <a class="btn btn-primary" (click)="toggleFav($event, cityWeather)"><span [class.glyphicon-star]="isFav" [class.glyphicon-star-empty]="!isFav" class="glyphicon"></span></a>
         <a class="btn btn-primary" (click)="toggleAdded($event, cityWeather)"><span [class.glyphicon-minus]="isAdded" [class.glyphicon-plus]="!isAdded" class="glyphicon"></span></a>
+        <a class="btn" [class.btn-primary]="!isEditing" [class.btn-success]="isEditing" (click)="toggleEditing($event)"><span [class.glyphicon-pencil]="!isEditing" [class.glyphicon-ok]="isEditing" class="glyphicon"></span></a>
       </div>
     </div>
 
@@ -14,7 +15,7 @@
       <h1 class="temperature-number text-center" [weather-highlight]="highlightTemp">{{ Math.floor(cityWeather.main.temp) | convertTemp: temperature }}</h1>
     </div>
     <div class="col-md-6">
-      <p class="h4 text-center" [ngSwitch]="cityWeather.weather[0].icon">
+      <p class="h4 text-center" [class.hidden]="!cardSettings.icon" [ngSwitch]="cityWeather.weather[0].icon">
         <img class="icon" src="{{iconUrl}}01d.png" *ngSwitchCase="'01d'">
         <img class="icon" src="{{iconUrl}}01n.png" *ngSwitchCase="'01n'">
 
@@ -60,19 +61,19 @@
       </p>
       <table class="table table-striped table-hover">
         <tbody>
-          <tr>
+          <tr [class.hidden]="!cardSettings.wind">
             <td><strong>Wind:</strong></td>
             <td><i class="wi wi-wind towards-0-deg" [wind-direction]="windDir"></i> {{ cityWeather.wind.speed }} mps</td>
           </tr>
-          <tr>
+          <tr [class.hidden]="!cardSettings.humidity">
             <td><strong>Humidity:</strong></td>
             <td>{{ cityWeather.main.humidity }}%</td>
           </tr>
-          <tr>
+          <tr [class.hidden]="!cardSettings.clouds">
             <td><strong>Clouds:</strong></td>
             <td>{{ cityWeather.clouds.all }}%</td>
           </tr>
-          <tr>
+          <tr [class.hidden]="!cardSettings.pressure">
             <td><strong>Pressure:</strong></td>
             <td>{{ cityWeather.main.pressure }} mbar</td>
           </tr>
@@ -80,5 +81,49 @@
       </table>
     </div>
   </div>
+
+  <div class="panel-footer" [class.hidden]="!isEditing">
+
+    <form class="form-horizontal" #editCard="ngForm" (ngSubmit)="onSubmit(editCard)" (reset)="onReset()" novalidate>
+      <fieldset>
+        <legend>Card's appearance</legend>
+        <div class="form-group">
+          <div class="col-lg-12">
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="icon" [(ngModel)]="cardSettings.icon"> Weather icon
+              </label>
+
+              <label>
+                <input type="checkbox" name="wind" [(ngModel)]="cardSettings.wind"> Wind
+              </label>
+
+              <label>
+                <input type="checkbox" name="humidity" [(ngModel)]="cardSettings.humidity"> Humidity
+              </label>
+
+              <label>
+                <input type="checkbox" name="clouds" [(ngModel)]="cardSettings.clouds"> Clouds
+              </label>
+
+              <label>
+                <input type="checkbox" name="pressure" [(ngModel)]="cardSettings.pressure"> Pressure
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group clearfix">
+          <div class="col-lg-12">
+            <button type="submit" class="btn btn-primary pull-right">Save</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
 </div>
+
 <google-map [lat]="cityWeather.coord.lat" [lng]="cityWeather.coord.lon" [cityName]="cityWeather.name"></google-map>

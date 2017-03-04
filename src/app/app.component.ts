@@ -10,6 +10,13 @@ import { WeatherService } from './weather/weather.service';
 })
 
 export class AppComponent implements OnInit{
+  cardSettings = {
+    icon: true,
+    wind: true,
+    humidity: true,
+    clouds: true,
+    pressure: true
+  };
 
   constructor(private weatherService: WeatherService) {}
 
@@ -19,6 +26,9 @@ export class AppComponent implements OnInit{
     }
     if (_.isNull(localStorage.getItem('addedCities'))) {
       localStorage.setItem('addedCities', JSON.stringify([]))
+    }
+    if(_.isNull(localStorage.getItem('cardSettings'))) {
+      localStorage.setItem('cardSettings', JSON.stringify([this.cardSettings]));
     }
   }
 }

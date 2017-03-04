@@ -13,11 +13,11 @@ export class WeatherHighlightDirective implements OnInit {
   ngOnInit() {
     if (Math.floor(this.highlightTemp) < 5) {
       this.highlightColor = '#4FC3F7';
-    } else if (Math.floor(this.highlightTemp) > 5 && Math.floor(this.highlightTemp) < 15) {
+    } else if (Math.floor(this.highlightTemp) >= 5 && Math.floor(this.highlightTemp) < 15) {
       this.highlightColor = '#FFF176';
-    }else if (Math.floor(this.highlightTemp) > 15 && Math.floor(this.highlightTemp) < 25) {
+    }else if (Math.floor(this.highlightTemp) >= 15 && Math.floor(this.highlightTemp) < 25) {
       this.highlightColor = '#FFA726';
-    } else if (Math.floor(this.highlightTemp) > 25) {
+    } else if (Math.floor(this.highlightTemp) >= 25) {
       this.highlightColor = '#FF5722';
     }
 
