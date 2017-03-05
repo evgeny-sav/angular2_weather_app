@@ -13,6 +13,7 @@
       "./node_modules/@types"
     ],
     "types": [
+      "types",
       "core-js",
       "whatwg-fetch",
       "node",
